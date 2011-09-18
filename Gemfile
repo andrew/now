@@ -8,6 +8,8 @@ gem 'haml'
 gem 'inherited_resources'
 gem 'acts_as_list_mongoid'
 
+gem 'haml-rails'
+
 gem 'unicorn'
 
 group :development do
