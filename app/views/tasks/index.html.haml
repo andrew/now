@@ -1,0 +1,18 @@
+%ul#menu
+  - Task.contexts.each do |context|
+    %li{:class => context}
+      %a{:href => "##{context}", :data => {:context => context}}= context.titleize
+
+= form_for Task.new do |form|
+  = form.hidden_field :context, :value => 'now'
+  = form.text_field :name, :placeholder => '...'
+
+- Task.contexts.each do |context|
+  %ul.context{:id => context}
+    - Task.where(:context => context).each do |task|
+      %li
+        = task.name
+        .functions
+          = form_for task do |form|
+            = form.select :context, Task.contexts.map{|c| [c.titleize, c]}, {}, :id => nil, :class => 'change'
+          = link_to 'X', task, :method => :delete, :class => 'delete'
