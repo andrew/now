@@ -8,6 +8,8 @@ gem 'haml'
 gem 'inherited_resources'
 gem 'acts_as_list_mongoid'
 
+gem 'unicorn'
+
 group :development do
   gem 'guard-livereload'
   gem 'capistrano'
