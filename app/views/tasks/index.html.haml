@@ -11,7 +11,7 @@
   %ul.context{:id => context}
     - Task.where(:context => context).each do |task|
       %li
-        = task.name
+        %span= task.name
         .functions
           = form_for task do |form|
             = form.select :context, Task.contexts.map{|c| [c.titleize, c]}, {}, :id => nil, :class => 'change'
