@@ -4,6 +4,7 @@ $ ->
     $('#now, li.now').toggleClass('current')
   else
     $("#{hash}, li.#{hash.replace('#','')}").toggleClass('current')
+    $('#task_context').val hash.replace('#','')
 
   $('.context li').click ->
     $(this).toggleClass('active')
